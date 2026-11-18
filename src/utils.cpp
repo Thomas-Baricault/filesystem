@@ -27,22 +27,22 @@ namespace tbaricault::filesystem
     {
         std::ifstream in(path);
         if (!in.is_open())
-            return (false);
+            return false;
         std::stringstream buffer;
         buffer << in.rdbuf();
         in.close();
         content += buffer.str();
-        return (true);
+        return true;
     }
 
     bool write(const std::string& path, std::string_view content)
     {
         std::ofstream out(path);
         if (!out.is_open())
-            return (false);
+            return false;
         out << content;
         out.close();
-        return (true);
+        return true;
     }
 
 }
